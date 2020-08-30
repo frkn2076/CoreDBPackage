@@ -1,2 +1,2 @@
 # CoreDBPackage
-Net Core - EF Core / MySQL Package by Docker compose
+.Net Core - EF Core / MySQL Package by Docker compose
