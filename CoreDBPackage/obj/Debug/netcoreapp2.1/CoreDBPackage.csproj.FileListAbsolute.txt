@@ -1,0 +1,4 @@
+C:\Users\Furkan\source\repos\CoreDBPackage\CoreDBPackage\obj\Debug\netcoreapp2.1\CoreDBPackage.csprojAssemblyReference.cache
+C:\Users\Furkan\source\repos\CoreDBPackage\CoreDBPackage\obj\Debug\netcoreapp2.1\CoreDBPackage.csproj.CoreCompileInputs.cache
+C:\Users\Furkan\source\repos\CoreDBPackage\CoreDBPackage\obj\Debug\netcoreapp2.1\CoreDBPackage.AssemblyInfoInputs.cache
+C:\Users\Furkan\source\repos\CoreDBPackage\CoreDBPackage\obj\Debug\netcoreapp2.1\CoreDBPackage.AssemblyInfo.cs

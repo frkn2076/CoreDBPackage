@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
 
 namespace CoreDBPackage.Controllers {
     [ApiController]
@@ -11,10 +9,6 @@ namespace CoreDBPackage.Controllers {
     public class WeatherForecastController : ControllerBase {
         private readonly AppDBContext _context;
 
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
 
         private readonly ILogger<WeatherForecastController> _logger;
 
@@ -25,11 +19,9 @@ namespace CoreDBPackage.Controllers {
 
         [HttpGet]
         public Users Get() {
-            //_context.Users.Add(new Users() { id = 2, name = "asda", surname = "asdasd" });
-            //_context.SaveChanges();
 
             try {
-                var user =  _context.Users.First();
+                var user = _context.Users.FirstOrDefault();
                 return user;
             }
             catch(Exception ex) {

@@ -8,7 +8,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["CoreDBPackage.csproj", "./"]
-RUN dotnet restore "./CoreDBPackage.csproj"
+RUN dotnet restore "./CoreDBPackage.csproj" # Restore dependencies and tools for the project in the current directory:
 COPY . .
 WORKDIR "/src/."
 RUN dotnet build "CoreDBPackage.csproj" -c Release -o /app/build
