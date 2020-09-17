@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Furkan\\source\\repos\\CoreDBPackage\\CoreDBPackage\\CoreDBPackage.csproj": {}
+    "C:\\.NETProjects\\CoreDBPackage\\CoreDBPackage\\CoreDBPackage.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Furkan\\source\\repos\\CoreDBPackage\\CoreDBPackage\\CoreDBPackage.csproj": {
+    "C:\\.NETProjects\\CoreDBPackage\\CoreDBPackage\\CoreDBPackage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Furkan\\source\\repos\\CoreDBPackage\\CoreDBPackage\\CoreDBPackage.csproj",
+        "projectUniqueName": "C:\\.NETProjects\\CoreDBPackage\\CoreDBPackage\\CoreDBPackage.csproj",
         "projectName": "CoreDBPackage",
-        "projectPath": "C:\\Users\\Furkan\\source\\repos\\CoreDBPackage\\CoreDBPackage\\CoreDBPackage.csproj",
+        "projectPath": "C:\\.NETProjects\\CoreDBPackage\\CoreDBPackage\\CoreDBPackage.csproj",
         "packagesPath": "C:\\Users\\Furkan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Furkan\\source\\repos\\CoreDBPackage\\CoreDBPackage\\obj\\",
+        "outputPath": "C:\\.NETProjects\\CoreDBPackage\\CoreDBPackage\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -43,6 +43,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNet.Mvc": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.7, )"

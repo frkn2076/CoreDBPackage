@@ -27,6 +27,9 @@ namespace CoreDBPackage {
                 app.UseDeveloperExceptionPage();
             }
 
+            //Middleware Exception Handler
+            app.UseExceptionHandler("/error");
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
