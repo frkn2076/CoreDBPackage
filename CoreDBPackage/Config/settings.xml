@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <Setting key="ErrorHeader" TRvalue="Hata" ENvalue="Error"/>
+  <Setting key="ErrorDescription" TRvalue="Geçici süre işleminizi gerçekleştiremiyoruz." ENvalue="We are temporarily unable to process your transaction."/>
+</root>

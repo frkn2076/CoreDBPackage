@@ -20,7 +20,7 @@
     "CoreDBPackage": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "login",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

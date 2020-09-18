@@ -1,0 +1,32 @@
+09/18/2020 21:26:52 +03:00 Application Starting.
+09/18/2020 21:27:02 +03:00 An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at CoreDBPackage.Controllers.Login.Register1() in C:\.NETProjects\CoreDBPackage\CoreDBPackage\Controllers\Login.cs:line 26
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+09/18/2020 21:27:02 +03:00 Object reference not set to an instance of an object.
+09/18/2020 23:23:25 +03:00 Application Starting.
+09/18/2020 23:23:54 +03:00 Application Starting.
+09/18/2020 23:28:00 +03:00 Application Starting.
+09/18/2020 23:28:35 +03:00 Application Starting.
+09/18/2020 23:34:33 +03:00 Application Starting.
+09/18/2020 23:36:26 +03:00 Application Starting.
+09/18/2020 23:37:02 +03:00 Application Starting.
+09/18/2020 23:39:36 +03:00 Application Starting.
+09/18/2020 23:40:32 +03:00 Application Starting.
+09/18/2020 23:54:18 +03:00 Application Starting.
+09/18/2020 23:56:45 +03:00 Application Starting.

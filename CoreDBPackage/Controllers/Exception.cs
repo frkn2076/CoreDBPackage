@@ -1,16 +1,18 @@
 ﻿using CoreDBPackage.CCC;
+using CoreDBPackage.Exceptions;
 using CoreDBPackage.ViewModels.Model;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace CoreDBPackage.Controllers {
     [ApiExplorerSettings(IgnoreApi = true)]
     public class Exception : ControllerBase {
         private readonly AppDBContext _context;
-        private readonly ILogger<Login> _logger;
+        private readonly ILogger<LoginController> _logger;
 
-        public Exception(ILogger<Login> logger, AppDBContext context) {
+        public Exception(ILogger<LoginController> logger, AppDBContext context) {
             _logger = logger;
             _context = context;
         }
@@ -20,9 +22,21 @@ namespace CoreDBPackage.Controllers {
             var context = HttpContext.Features.Get<IExceptionHandlerFeature>();
             var exception = context?.Error; // Your exception
 
-            //logging
+            if(exception is DefinedException) {
+                _logger.Log(LogLevel.Warning, exception.Message);
 
-            Response.StatusCode = 400; // You can use HttpStatusCode enum instead
+                return new BaseModel() {
+                    isError = true,
+                    error = new DialogBoxModel() {
+                        message = "HATA",
+                        subMessage = exception.Message
+                    }
+                };
+            }
+
+            _logger.Log(LogLevel.Error,string.Concat(exception.Message, Environment.NewLine));
+
+            //Response.StatusCode = 400; // You can use HttpStatusCode enum instead
 
             return new BaseModel() {
                 isError = true,
