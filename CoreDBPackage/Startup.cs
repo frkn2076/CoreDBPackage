@@ -1,10 +1,13 @@
+using CoreDBPackage.Notification;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+using System;
 
 namespace CoreDBPackage {
     public class Startup {
@@ -17,9 +20,28 @@ namespace CoreDBPackage {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
             services.AddControllers();
-            services.AddDbContextPool<AppDBContext>(
-      options => options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")
-   ));
+
+            //Added for session
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".AdventureWorks.Session";
+                options.IdleTimeout = TimeSpan.FromMinutes(2);
+                options.Cookie.IsEssential = true;
+            });
+            //
+
+            //Added for Get IP of Client
+            services.AddHttpContextAccessor();
+            services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
+            //
+#if LOCAL
+            services.AddDbContextPool<AppDBContext>(options => options.UseMySQL(Configuration.GetConnectionString("LocalConnection")));
+#else
+            services.AddDbContextPool<AppDBContext>(options => options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
+#endif
+            services.AddSingleton<IMailSender, MailSender>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -28,7 +50,7 @@ namespace CoreDBPackage {
                 app.UseDeveloperExceptionPage();
             }
 
-            //Middleware Exception Handler
+            //Added for middleware Exception Handler
             app.UseExceptionHandler("/error");
 
             app.UseHttpsRedirection();
@@ -36,6 +58,15 @@ namespace CoreDBPackage {
             app.UseRouting();
 
             app.UseAuthorization();
+
+            //Added for session
+            app.UseSession();
+
+
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope()) {
+                var db = serviceScope.ServiceProvider.GetService<AppDBContext>();
+                db.Database.ExecuteSqlCommand("CREATE TABLE if not exists `__EFMigrationsHistory` ( `MigrationId` nvarchar(150) NOT NULL, `ProductVersion` nvarchar(32) NOT NULL, PRIMARY KEY (`MigrationId`) );");
+            }
 
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();

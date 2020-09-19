@@ -2,4 +2,9 @@
 <root>
   <Setting key="ErrorHeader" TRvalue="Hata" ENvalue="Error"/>
   <Setting key="ErrorDescription" TRvalue="Geçici süre işleminizi gerçekleştiremiyoruz." ENvalue="We are temporarily unable to process your transaction."/>
+  <Setting key="MAILHEADER" TRvalue="Merhaba," ENvalue="Hello,"/>
+  <Setting key="MAILTEXT" TRvalue="Lütfen aşağıda ki şifre ile mailin size ait olduğunu teyit edin." ENvalue="Please confirm that the mail belongs to you with the password below."/>
+  <Setting key="InfoHeader" TRvalue="Bilgilendirme" ENvalue="Information"/>
+  <Setting key="InfoDescription" TRvalue="Lütfen mailinize gönderilen şifreyi giriniz." ENvalue="Please enter the password sent to your e-mail."/>
+  <Setting key="WrongEmail" TRvalue="Yanlış anahtar girdiniz." ENvalue="You entered the wrong key."/>
 </root>

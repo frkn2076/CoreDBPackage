@@ -6,5 +6,10 @@ namespace CoreDBPackage {
         public AppDBContext(DbContextOptions<AppDBContext> options) : base(options) {
         }
         public DbSet<Login> Login { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+            base.OnConfiguring(optionsBuilder);
+        }
+
     }
 }

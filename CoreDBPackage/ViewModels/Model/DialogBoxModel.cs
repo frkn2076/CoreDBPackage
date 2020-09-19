@@ -3,5 +3,6 @@
         public string message { get; set; }
         public string subMessage { get; set; }
         public ButtonModel button { get; set; }
+        public bool hasTextBox { get; set; }
     }
 }
