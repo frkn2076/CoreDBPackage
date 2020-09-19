@@ -21,7 +21,7 @@ services:
       # Where our data will be persisted
     volumes:
       - my-volume:/var/lib/mysql
-      # - ./sqlinit:/docker-entrypoint-initdb.d
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     networks:
       - coredbpackage-net
 

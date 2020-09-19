@@ -14,20 +14,22 @@ using System.Linq;
 namespace CoreDBPackage.Controllers {
     [ApiController]
     [Route("[controller]")]
-    public class LoginController : ControllerBase {
+    public class KnowUserController : ControllerBase {
         private readonly AppDBContext context;
         private readonly IMailSender mailSender;
         private readonly IHttpContextAccessor accessor;
 
-        public LoginController(AppDBContext context, IMailSender mailSender, IHttpContextAccessor accessor) {
+        public KnowUserController(AppDBContext context, IMailSender mailSender, IHttpContextAccessor accessor) {
             this.context = context;
             this.mailSender = mailSender;
             this.accessor = accessor;
         }
 
+
         //[ActionHandler(IdParamName = "fooId")]
         //[AllowAnonymous]
         [HttpPost("register1")]
+        //[HttpGet]
         public BaseModel Register1(RegisterRequestViewModel1 request) {
 
             ////Retrieve the IP Address

@@ -24,5 +24,11 @@ namespace CoreDBPackage.Exceptions {
         }
     }
 
+    public class WrongLoginInfoKeyException : NotFoundException {
+        public WrongLoginInfoKeyException() : base(MyCache.getSetting("WrongLoginInfo")) {
+
+        }
+    }
+
     #endregion
 }

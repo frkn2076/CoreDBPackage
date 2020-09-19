@@ -62,12 +62,6 @@ namespace CoreDBPackage {
             //Added for session
             app.UseSession();
 
-
-            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope()) {
-                var db = serviceScope.ServiceProvider.GetService<AppDBContext>();
-                db.Database.ExecuteSqlCommand("CREATE TABLE if not exists `__EFMigrationsHistory` ( `MigrationId` nvarchar(150) NOT NULL, `ProductVersion` nvarchar(32) NOT NULL, PRIMARY KEY (`MigrationId`) );");
-            }
-
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
             });

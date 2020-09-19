@@ -146,3 +146,6 @@ C:\.NETProjects\CoreDBPackage\CoreDBPackage\bin\Debug\netcoreapp3.1\runtimes\win
 C:\.NETProjects\CoreDBPackage\CoreDBPackage\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\.NETProjects\CoreDBPackage\CoreDBPackage\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\.NETProjects\CoreDBPackage\CoreDBPackage\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\.NETProjects\CoreDBPackage\CoreDBPackage\bin\Debug\netcoreapp3.1\MySqlConnector.dll
+C:\.NETProjects\CoreDBPackage\CoreDBPackage\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.dll
+C:\.NETProjects\CoreDBPackage\CoreDBPackage\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll
