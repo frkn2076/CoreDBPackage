@@ -444,3 +444,31 @@ CoreDBPackage.Exceptions.DefinedEmailException: Geçici süre işleminizi gerçe
 09/20/2020 17:19:05 +03:00 Geçici süre işleminizi gerçekleştiremiyoruz.
 09/20/2020 18:20:19 +03:00 Application Starting.
 09/20/2020 18:33:30 +03:00 Application Starting.
+09/20/2020 18:37:32 +03:00 Application Starting.
+09/20/2020 18:44:23 +03:00 Application Starting.
+09/20/2020 18:46:47 +03:00 Application Starting.
+09/20/2020 18:47:34 +03:00 Application Starting.
+09/20/2020 18:47:51 +03:00 An unhandled exception has occurred while executing the request.
+CoreDBPackage.Exceptions.WrongLoginInfoKeyException: Lütfen giriş bilgilerinizi kontrol ediniz.
+ ---> System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   --- End of inner exception stack trace ---
+   at CoreDBPackage.Controllers.LoginController.login1(RegisterRequestViewModel1 request) in C:\.NETProjects\CoreDBPackage\CoreDBPackage\Controllers\LoginController.cs:line 89
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+09/20/2020 18:47:51 +03:00 Lütfen giriş bilgilerinizi kontrol ediniz.

@@ -77,8 +77,9 @@ namespace CoreDBPackage.Controllers {
             
         [HttpPost("login1")]
         public BaseModel login1(RegisterRequestViewModel1 request) {
-            var user = context.Login.AsNoTracking().FirstOrDefault(x => x.email == request.email && x.password == request.password);
-            if(user == null) {
+            var cryptodPassword = Encryptor.MD5Hash(request?.password);
+            var user = context.Login.AsNoTracking().FirstOrDefault(x => x.email == request.email && x.password == cryptodPassword);
+            if(user != null) {
                 HttpContext.Session.SetString("User", request.email);
                 return new BaseModel() {
                     isSuccess = true
