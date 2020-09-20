@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CoreDBPackage.Notification {
     public class MailSender : IMailSender {
-        private async Task SendMail(string mailValidatorKey, List<string> toList, List<string> ccList = null) {
+        private /*async Task*/ void SendMail(string mailValidatorKey, List<string> toList, List<string> ccList = null) {
             SmtpClient sc = new SmtpClient();
             sc.Port = 587;
             sc.Host = "smtp.gmail.com";
@@ -44,7 +44,7 @@ namespace CoreDBPackage.Notification {
             sc.Send(mail);
         }
 
-        private async Task SendMail(string mailValidatorKey, string to, string cc = null) {
+        private /*async Task*/ void SendMail(string mailValidatorKey, string to, string cc = null) {
             var toList = new List<string>() { to };
             var ccList = cc == null ? null : new List<string>() { cc };
             SendMail(mailValidatorKey, toList, ccList);
