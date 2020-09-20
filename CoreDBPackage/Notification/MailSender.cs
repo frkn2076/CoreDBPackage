@@ -13,11 +13,11 @@ namespace CoreDBPackage.Notification {
             sc.Host = "smtp.gmail.com";
             sc.EnableSsl = true;
 
-            sc.Credentials = new NetworkCredential("YourSoulMatee@outlook.com", "fbr01994");
+            sc.Credentials = new NetworkCredential("FindYourSoulMatee@gmail.com", "faykdwrypdskxinq");
 
             MailMessage mail = new MailMessage();
 
-            mail.From = new MailAddress("YourSoulMatee@outlook.com", MyCache.getSetting("MAILSUBJECT"));
+            mail.From = new MailAddress("FindYourSoulMatee@gmail.com", MyCache.getSetting("MAILSUBJECT"));
 
 
             foreach (var to in toList) {
