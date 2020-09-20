@@ -13,7 +13,7 @@ namespace CoreDBPackage.Notification {
             sc.Host = "smtp.gmail.com";
             sc.EnableSsl = true;
 
-            sc.Credentials = new NetworkCredential("FindYourSoulMatee@gmail.com", "faykdwrypdskxinq");
+            sc.Credentials = new NetworkCredential("FindYourSoulMatee@gmail.com", "fbr01994");
 
             MailMessage mail = new MailMessage();
 
