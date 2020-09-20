@@ -2,7 +2,8 @@
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 WORKDIR /app
-EXPOSE 80
+#EXPOSE 80	#HTTP
+EXPOSE 443  #HTTPS
 
 WORKDIR /app
 COPY ./Config/settings.xml ./Config/
