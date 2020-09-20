@@ -5,8 +5,8 @@ WORKDIR /app
 EXPOSE 80
 
 WORKDIR /app
-#ADD ./FileLog ./mnt/		# COPY ./src /some_dir/dest_dir/ => Copy the content of the src directory to /some_dir/dest_dir directory
 COPY ./Config/settings.xml ./Config/
+COPY ./Notification/MailValidator.html ./Notification/
 COPY ./FileLog ./FileLog/
 COPY ./Uploads ./Uploads/
 

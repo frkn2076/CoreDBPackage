@@ -93,5 +93,7 @@ C:\.NETProjects\CoreDBPackage\CoreDBPackage\bin\Local\netcoreapp3.1\MySqlConnect
 C:\.NETProjects\CoreDBPackage\CoreDBPackage\bin\Local\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.dll
 C:\.NETProjects\CoreDBPackage\CoreDBPackage\bin\Local\netcoreapp3.1\Pomelo.JsonObject.dll
 C:\.NETProjects\CoreDBPackage\CoreDBPackage\obj\Local\netcoreapp3.1\CoreDBPackage.csprojAssemblyReference.cache
+C:\.NETProjects\CoreDBPackage\CoreDBPackage\bin\Local\netcoreapp3.1\MailKit.dll
+C:\.NETProjects\CoreDBPackage\CoreDBPackage\bin\Local\netcoreapp3.1\MimeKit.dll
 C:\.NETProjects\CoreDBPackage\CoreDBPackage\obj\Local\netcoreapp3.1\CoreDBPackage.csproj.CoreCompileInputs.cache
 C:\.NETProjects\CoreDBPackage\CoreDBPackage\obj\Local\netcoreapp3.1\CoreDBPackage.MvcApplicationPartsAssemblyInfo.cache

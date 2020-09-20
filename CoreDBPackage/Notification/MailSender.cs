@@ -1,47 +1,42 @@
 ﻿using CoreDBPackage.Config;
+using MailKit.Net.Smtp;
+using MailKit.Security;
+using MimeKit;
+using MimeKit.Text;
 using System.Collections.Generic;
 using System.IO;
-using System.Net;
-using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace CoreDBPackage.Notification {
     public class MailSender : IMailSender {
         private /*async Task*/ void SendMail(string mailValidatorKey, List<string> toList, List<string> ccList = null) {
-            SmtpClient sc = new SmtpClient();
-            sc.Port = 587;
-            sc.Host = "smtp.gmail.com";
-            sc.EnableSsl = true;
-
-            sc.Credentials = new NetworkCredential("FindYourSoulMatee@gmail.com", "fbr01994");
-
-            MailMessage mail = new MailMessage();
-
-            mail.From = new MailAddress("FindYourSoulMatee@gmail.com", MyCache.getSetting("MAILSUBJECT"));
-
-
+            var email = new MimeMessage();
+            email.Sender = MailboxAddress.Parse("FindYourSoulMatee@gmail.com");
             foreach (var to in toList) {
-                mail.To.Add(to);
+                email.To.Add(MailboxAddress.Parse(to));
             }
             if (ccList != null) {
                 foreach (var cc in ccList) {
-                    mail.CC.Add(cc);
+                    email.Cc.Add(MailboxAddress.Parse(cc));
                 }
             }
+            email.Subject = MyCache.getSetting("MAILSUBJECT");
 
-            mail.Subject = "SOULMATEE";
-            mail.IsBodyHtml = true;
             string path = "Notification//MailValidator.html";
             var tempBody = File.ReadAllText(path);
             tempBody = tempBody.Replace("MAILHEADER", MyCache.getSetting("MAILHEADER"));
             tempBody = tempBody.Replace("MAILTEXT", MyCache.getSetting("MAILTEXT"));
             var body = tempBody.Replace("MAILKEY", mailValidatorKey);
-            mail.Body = body;
 
-            //mail.Attachments.Add(new Attachment(@"C:\Rapor.xlsx"));
-            //mail.Attachments.Add(new Attachment(@"C:\Sonuc.pptx"));
+            email.Body = new TextPart(TextFormat.Html) { Text = body };
 
-            sc.Send(mail);
+            // send email
+            using var smtp = new SmtpClient();
+            smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+            smtp.Authenticate("FindYourSoulMatee@gmail.com", "fbr01994");
+            smtp.Send(email);
+            smtp.Disconnect(true);
+
         }
 
         private /*async Task*/ void SendMail(string mailValidatorKey, string to, string cc = null) {

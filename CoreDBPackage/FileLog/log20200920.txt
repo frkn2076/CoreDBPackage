@@ -442,3 +442,5 @@ CoreDBPackage.Exceptions.DefinedEmailException: Geçici süre işleminizi gerçe
    at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
 09/20/2020 17:19:05 +03:00 Geçici süre işleminizi gerçekleştiremiyoruz.
+09/20/2020 18:20:19 +03:00 Application Starting.
+09/20/2020 18:33:30 +03:00 Application Starting.
