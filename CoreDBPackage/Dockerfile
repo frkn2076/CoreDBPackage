@@ -8,6 +8,7 @@ WORKDIR /app
 #ADD ./FileLog ./mnt/		# COPY ./src /some_dir/dest_dir/ => Copy the content of the src directory to /some_dir/dest_dir directory
 COPY ./Config/settings.xml ./Config/
 COPY ./FileLog ./FileLog/
+COPY ./Uploads ./Uploads/
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src

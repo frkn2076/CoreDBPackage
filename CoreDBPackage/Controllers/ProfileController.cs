@@ -19,18 +19,31 @@ namespace CoreDBPackage.Controllers {
             this.environment = environment;
         }
 
-
-        //[ActionHandler(IdParamName = "fooId")]
-        //[AllowAnonymous]
+        /// <summary>Sets profile photo.
+        /// <para></para>
+        /// <seealso cref="ProfileController"/>
+        /// </summary>
         [HttpPost("profile1")]
-        //[HttpGet]
         public async Task Profile1(IFormFile file) {
+            var user = HttpContext.Session.GetString("User");
             var uploads = Path.Combine("wwwroot", "..//Uploads");
             if (file.Length > 0) {
-                using (var fileStream = new FileStream(Path.Combine(uploads, file.FileName), FileMode.Create)) {
+                using (var fileStream = new FileStream(Path.Combine(uploads, string.Concat(user, ".jpg")), FileMode.Create)) {
                     await file.CopyToAsync(fileStream);
                 }
             }
+        }
+
+        /// <summary>Gets profile photo.
+        /// <para></para>
+        /// <seealso cref="ProfileController"/>
+        /// </summary>
+        [HttpGet("profile2")]
+        public IActionResult Profile2() {
+            var user = HttpContext.Session.GetString("User");
+            var uploads = Path.Combine("wwwroot", "..//Uploads");
+            var image = System.IO.File.ReadAllBytes(Path.Combine(uploads, string.Concat(user, ".jpg")));
+            return File(image, "image/jpeg");
         }
     }
 }

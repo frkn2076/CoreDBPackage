@@ -65,6 +65,7 @@ namespace CoreDBPackage.Controllers {
                     email = HttpContext.Session.GetString("Mail"),
                     password = HttpContext.Session.GetString("Password")
                 };
+                HttpContext.Session.SetString("User", login.email);
                 context.Login.Add(login);
                 context.SaveChanges();
                 return new BaseModel() { 
@@ -73,11 +74,12 @@ namespace CoreDBPackage.Controllers {
             }
             throw new WrongEmailKeyException();
         }
-
+            
         [HttpPost("login1")]
-        public BaseModel Register2(RegisterRequestViewModel1 request) {
+        public BaseModel login1(RegisterRequestViewModel1 request) {
             var user = context.Login.AsNoTracking().FirstOrDefault(x => x.email == request.email && x.password == request.password);
             if(user == null) {
+                HttpContext.Session.SetString("User", request.email);
                 return new BaseModel() {
                     isSuccess = true
                 };
