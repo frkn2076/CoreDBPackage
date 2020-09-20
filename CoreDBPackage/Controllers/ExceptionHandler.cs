@@ -40,7 +40,7 @@ namespace CoreDBPackage.Controllers {
             return new BaseModel() {
                 dialogBox = new DialogBoxModel() {
                     message = MyCache.getSetting("ErrorHeader"),
-                    subMessage = exception.Message//MyCache.getSetting("ErrorDescription")
+                    subMessage = MyCache.getSetting("ErrorDescription")
                 }
             };
         }
