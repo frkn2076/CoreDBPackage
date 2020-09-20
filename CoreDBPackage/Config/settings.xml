@@ -8,4 +8,5 @@
   <Setting key="InfoDescription" TRvalue="Lütfen mailinize gönderilen şifreyi giriniz." ENvalue="Please enter the password sent to your e-mail."/>
   <Setting key="WrongEmail" TRvalue="Yanlış anahtar girdiniz." ENvalue="You entered the wrong key."/>
   <Setting key="WrongLoginInfo" TRvalue="Lütfen giriş bilgilerinizi kontrol ediniz." ENvalue="Please check your login information."/>
+  <Setting key="MAILSUBJECT" TRvalue="SoulMatee Anahtarınız" ENvalue="Your SoulMatee Key"/>
 </root>
