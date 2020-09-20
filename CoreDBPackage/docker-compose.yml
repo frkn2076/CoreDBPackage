@@ -29,7 +29,7 @@ services:
     image: coredbpackage
     build: .
     ports:
-      - "3000:443"
+      - "8080:80"
     depends_on:
       - db
     networks:
