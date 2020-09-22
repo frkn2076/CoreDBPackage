@@ -22,7 +22,9 @@ namespace CoreDBPackage.Controllers {
             var context = HttpContext.Features.Get<IExceptionHandlerFeature>();
             var exception = context?.Error; // Your exception
 
-            if(exception is NotFoundException) {
+            Response.StatusCode = 200;  // You can use HttpStatusCode enum instead
+
+            if (exception is NotFoundException) {
                 _logger.Log(LogLevel.Warning, exception.Message);
 
                 return new BaseModel() {
@@ -34,8 +36,6 @@ namespace CoreDBPackage.Controllers {
             }
 
             _logger.Log(LogLevel.Error,string.Concat(exception.Message, Environment.NewLine));
-
-            //Response.StatusCode = 400; // You can use HttpStatusCode enum instead
 
             return new BaseModel() {
                 dialogBox = new DialogBoxModel() {
