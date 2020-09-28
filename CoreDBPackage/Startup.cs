@@ -1,3 +1,4 @@
+using CoreDBPackage.Hubs;
 using CoreDBPackage.Notification;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -42,6 +43,16 @@ namespace CoreDBPackage {
 #endif
             services.AddSingleton<IMailSender, MailSender>();
 
+            //SignalR
+            services.AddSignalR(hubOptions =>
+            {
+                hubOptions.EnableDetailedErrors = true;
+                hubOptions.KeepAliveInterval = TimeSpan.FromMinutes(1);
+            });
+            services.AddCors(options => options.AddPolicy("CorsPolicy", builder => {
+                builder.AllowAnyMethod().AllowAnyHeader().WithOrigins("https://localhost:5001").AllowCredentials();
+            }));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,11 +70,15 @@ namespace CoreDBPackage {
 
             app.UseAuthorization();
 
+            //For Policy
+            app.UseCors("CorsPolicy");
+
             //Added for session
             app.UseSession();
 
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
+                endpoints.MapHub<ChatHub>("eventHub"); // path will look like this https://localhost:44379/chatsocket 
             });
         }
     }

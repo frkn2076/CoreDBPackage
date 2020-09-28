@@ -27,6 +27,9 @@ namespace CoreDBPackage {
             finally {
                 Log.CloseAndFlush();
             }
+
+            var host = CreateHostBuilder(args).Build();
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
