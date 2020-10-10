@@ -27,7 +27,7 @@ namespace CoreDBPackage {
             services.AddSession(options =>
             {
                 options.Cookie.Name = ".AdventureWorks.Session";
-                options.IdleTimeout = TimeSpan.FromMinutes(10);
+                options.IdleTimeout = TimeSpan.FromMinutes(5);
                 options.Cookie.IsEssential = true;
             });
             //
@@ -78,7 +78,7 @@ namespace CoreDBPackage {
 
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
-                endpoints.MapHub<ChatHub>("eventHub"); // path will look like this https://localhost:44379/chatsocket 
+                endpoints.MapHub<ChatHub>("chatHub"); // path will look like this https://localhost:44379/chatsocket 
             });
         }
     }

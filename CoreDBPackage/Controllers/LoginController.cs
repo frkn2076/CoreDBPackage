@@ -42,9 +42,9 @@ namespace CoreDBPackage.Controllers {
             var key = GenerateRandomKey();
             mailSender.SendMail(key, request?.email);
 
-            HttpContext.Session.SetString("MailKey", key);
-            HttpContext.Session.SetString("Mail", request?.email);
-            HttpContext.Session.SetString("Password", cryptodPassword);
+            accessor.HttpContext.Session.SetString("MailKey", key);
+            accessor.HttpContext.Session.SetString("Mail", request?.email);
+            accessor.HttpContext.Session.SetString("Password", cryptodPassword);
 
             return new BaseModel() {
                 dialogBox = new DialogBoxModel() {
@@ -66,7 +66,7 @@ namespace CoreDBPackage.Controllers {
                     email = HttpContext.Session.GetString("Mail"),
                     password = HttpContext.Session.GetString("Password")
                 };
-                HttpContext.Session.SetString("User", login.email);
+                accessor.HttpContext.Session.SetString("User", login.email);
                 context.Login.Add(login);
                 context.SaveChanges();
                 return new BaseModel() { 
@@ -81,7 +81,7 @@ namespace CoreDBPackage.Controllers {
             var cryptodPassword = Encryptor.MD5Hash(request?.password);
             var user = context.Login.AsNoTracking().FirstOrDefault(x => x.email == request.email && x.password == cryptodPassword);
             if(user != null) {
-                HttpContext.Session.SetString("User", request.email);
+                accessor.HttpContext.Session.SetString("User", request.email);
                 return new BaseModel() {
                     isSuccess = true
                 };
