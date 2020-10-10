@@ -2,6 +2,7 @@ using CoreDBPackage.Hubs;
 using CoreDBPackage.Notification;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -22,19 +23,25 @@ namespace CoreDBPackage {
         public void ConfigureServices(IServiceCollection services) {
             services.AddControllers();
 
-            //Added for session
+            //Added for cache
             services.AddDistributedMemoryCache();
+            
+            //Added for session
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.CheckConsentNeeded = context => true; // consent required
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(5);
-                options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
             //
 
             //Added for Get IP of Client
             services.AddHttpContextAccessor();
-            services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
+            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
             //
 #if LOCAL
             services.AddDbContextPool<AppDBContext>(options => options.UseMySQL(Configuration.GetConnectionString("LocalConnection")));
